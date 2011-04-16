@@ -1,0 +1,73 @@
+#include <windows.h>
+#include "resource.h"
+
+// Win32 application icon.
+IDI_APPICON             ICON                    "Application.ico"
+
+// Our main menu.
+IDR_MAINMENU MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      ID_HELP_ABOUT
+    END
+END
+
+// Application manifest.
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Application.manifest"
+
+// Executable version information.
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "CompanyName", "Transmission Zero"
+            VALUE "FileDescription", "A basic Windows application."
+            VALUE "FileVersion", "1, 0, 0, 0"
+            VALUE "InternalName", "MinGW Win32"
+            VALUE "LegalCopyright", "©2011 Martin Payne"
+            VALUE "OriginalFilename", "MinGW Win32.exe"
+            VALUE "ProductName", "MinGW Win32 Application"
+            VALUE "ProductVersion", "1, 0, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+// Our "about" dialog.
+IDD_ABOUTDIALOG DIALOGEX 0, 0, 147, 67
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    ICON            IDI_APPICON,IDC_STATIC,7,7,20,20
+    LTEXT           "MinGW Win32 Application.",IDC_STATIC,34,7,86,8
+    LTEXT           "©2011 Martin Payne",IDC_STATIC,34,17,68,8
+    DEFPUSHBUTTON   "OK",IDOK,90,46,50,14,WS_GROUP
+END
+
+// Our accelerators.
+IDR_ACCELERATOR ACCELERATORS 
+BEGIN
+    "A",            ID_HELP_ABOUT,          VIRTKEY, ALT, NOINVERT
+END
