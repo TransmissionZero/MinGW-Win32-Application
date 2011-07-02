@@ -40,5 +40,13 @@ http://www.transmissionzero.co.uk/contact/. Please ensure that you read the
 article at http://www.transmissionzero.co.uk/computing/win32-apps-with-mingw/
 before sending any questions.
 
+Changelog
+
+2011–07–02 Version 1.1
+  • Minor tweaks to the code for consistency between Win16 and Win32 versions.
+  • Minor tweaks to the Makefile for consistency.
+
+2011–04–13 Version 1.0
+  • Initial release.
+
 Martin Payne
-2011–04–13

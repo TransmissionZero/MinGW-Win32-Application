@@ -4,15 +4,17 @@
 // Window procedure for our main window.
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+  static HINSTANCE hInstance;
+
   switch (msg)
-  {
+  {  
     case WM_COMMAND:
     {
       switch (LOWORD(wParam))
       {
         case ID_HELP_ABOUT:
         {
-          DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_ABOUTDIALOG), hWnd, &AboutDialogProc);
+          DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTDIALOG), hWnd, &AboutDialogProc);
           return 0;
         }
 
@@ -40,11 +42,17 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
       {
         case ID_HELP_ABOUT:
         {
-          DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_ABOUTDIALOG), hWnd, &AboutDialogProc);
+          DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTDIALOG), hWnd, &AboutDialogProc);
           return 0;
         }
       }
       break;
+    }
+    
+    case WM_CREATE:
+    {
+      hInstance = ((LPCREATESTRUCT) lParam)->hInstance;
+      return 0;
     }
 
     case WM_DESTROY:
