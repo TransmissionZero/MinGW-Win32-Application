@@ -8,7 +8,7 @@ http://www.transmissionzero.co.uk/computing/win32-apps-with-mingw/.
 To build the application on a Windows machine, simply extract the contents of
 this archive to a folder on your computer. Open a command prompt, change to the
 directory where you extracted the files, and type “mingw32-make”. The
-application should be compiled, linked, and output as “MinGW Win32.exe”.
+application should be compiled, linked, and output as “Win32App.exe”.
 
 To build under another operating system, the Makefile will probably require
 some small changes. For example, under Fedora the C compiler and resource
@@ -16,11 +16,19 @@ compiler are named “i686-pc-mingw32-gcc” and “i686-pc-mingw32-windres”. Also,
 your version of the make utility may be named differently—please check the
 documentation which came with your MinGW packages.
 
+It should also be possible to build the application using any C or C++ compiler
+which supports targeting Windows, for example Microsoft Visual C++ and Open
+Watcom. You will of course need to set the projects up for yourself if you do
+that. No source code modifications are required if you want to build a 64 bit
+version of the application.
+
+
 Disclaimer
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.
+
 
 Terms of Use
 
@@ -33,6 +41,7 @@ application template, and how you license any applications built with it is
 entirely up to you. Of course, you must still comply with the licensing
 conditions of the tools you are using to build the application.
 
+
 Problems?
 
 If you have any problems or questions, please get in contact via
@@ -40,13 +49,21 @@ http://www.transmissionzero.co.uk/contact/. Please ensure that you read the
 article at http://www.transmissionzero.co.uk/computing/win32-apps-with-mingw/
 before sending any questions.
 
+
 Changelog
 
-2011–07–02 Version 1.1
+2013-08-26: Version 1.2
+  • Minor tweaks to the VERSIONINFO resource so that it uses constants rather
+    than magic numbers.
+  • Modified "processorArchitecture" for common controls library in manifest, to
+    avoid errors when the application is built for and run on a 64 bit OS.
+
+2011–07–02: Version 1.1
   • Minor tweaks to the code for consistency between Win16 and Win32 versions.
   • Minor tweaks to the Makefile for consistency.
 
-2011–04–13 Version 1.0
+2011–04–13: Version 1.0
   • Initial release.
 
 Martin Payne
+2013-08-26

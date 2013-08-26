@@ -1,4 +1,4 @@
-# This Makefile will build the MinGW Win32 test application.
+# This Makefile will build the MinGW Win32 application.
 
 HEADERS = include/callbacks.h include/resource.h
 OBJS =	obj/winmain.o obj/callbacks.o obj/resource.o
@@ -11,16 +11,16 @@ CFLAGS = -O3 -std=c99 -D UNICODE -D _UNICODE -D _WIN32_IE=0x0500 -D WINVER=0x500
 LDFLAGS = -s -lcomctl32 -Wl,--subsystem,windows
 RC = windres
 
-all : MinGW\ Win32.exe
+all: Win32App.exe
 
-MinGW\ Win32.exe : ${OBJS}
+Win32App.exe: ${OBJS}
 	${CC} -o "$@" ${OBJS} ${LDFLAGS}
 
-clean :
-	del obj\*.o "MinGW Win32.exe"
+clean:
+	del obj\*.o "Win32App.exe"
 
-obj/%.o : src/%.c ${HEADERS}
+obj/%.o: src/%.c ${HEADERS}
 	${CC} ${CFLAGS} ${INCLUDE_DIRS} -c $< -o $@
 
-obj/resource.o : res/resource.rc res/Application.manifest res/Application.ico include/resource.h
+obj/resource.o: res/resource.rc res/Application.manifest res/Application.ico include/resource.h
 	${RC} -I.\include -I.\res -i $< -o $@
