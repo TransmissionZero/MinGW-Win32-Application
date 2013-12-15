@@ -7,9 +7,16 @@ INCLUDE_DIRS = -I.\include
 WARNS = -Wall
 
 CC = gcc
-CFLAGS = -O3 -std=c99 -D UNICODE -D _UNICODE -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
 LDFLAGS = -s -lcomctl32 -Wl,--subsystem,windows
 RC = windres
+
+# Compile ANSI build only if CHARSET=ANSI
+ifeq (${CHARSET}, ANSI)
+  CFLAGS= -O3 -std=c99 -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
+else
+  CFLAGS= -O3 -std=c99 -D UNICODE -D _UNICODE -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
+endif
+
 
 all: Win32App.exe
 

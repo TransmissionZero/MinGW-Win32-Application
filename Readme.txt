@@ -10,6 +10,9 @@ this archive to a folder on your computer. Open a command prompt, change to the
 directory where you extracted the files, and type “mingw32-make”. The
 application should be compiled, linked, and output as “Win32App.exe”.
 
+To compile an ANSI build (i.e. if you want the application to run under Windows
+9x), run “mingw32-make CHARSET=ANSI” from the command prompt.
+
 To build under another operating system, the Makefile will probably require
 some small changes. For example, under Fedora the C compiler and resource
 compiler are named “i686-pc-mingw32-gcc” and “i686-pc-mingw32-windres”. Also,
@@ -52,6 +55,12 @@ before sending any questions.
 
 Changelog
 
+2013-12-15: Version 1.3
+  • Added CHARSET variable to makefile so that an ANSI build can be compiled if
+    required.
+  • Updated image loading code for window class so that the correct small icon
+    is loaded on Windows 9x.
+
 2013-08-26: Version 1.2
   • Minor tweaks to the VERSIONINFO resource so that it uses constants rather
     than magic numbers.
@@ -66,4 +75,4 @@ Changelog
   • Initial release.
 
 Martin Payne
-2013-08-26
+2013-12-15

@@ -26,12 +26,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
   wc.cbClsExtra    = 0;
   wc.cbWndExtra    = 0;
   wc.hInstance     = hInstance;
-  wc.hIcon         = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON, 32, 32, LR_SHARED);
+  wc.hIcon         = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON, 0, 0,
+                                       LR_DEFAULTSIZE | LR_DEFAULTCOLOR | LR_SHARED);
   wc.hCursor       = (HCURSOR) LoadImage(NULL, IDC_ARROW, IMAGE_CURSOR, 0, 0, LR_SHARED);
   wc.hbrBackground = (HBRUSH) (COLOR_BTNFACE + 1);
   wc.lpszMenuName  = MAKEINTRESOURCE(IDR_MAINMENU);
   wc.lpszClassName = MainWndClass;
-  wc.hIconSm       = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON, 16, 16, LR_SHARED);
+  wc.hIconSm       = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON,
+                                       GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON),
+                                       LR_DEFAULTCOLOR | LR_SHARED);
 
   // Register our window classes, or error.
   if (! RegisterClassEx(&wc))
