@@ -5,7 +5,7 @@
 IDI_APPICON ICON                       "Application.ico"
 
 // Our main menu.
-IDR_MAINMENU MENU 
+IDR_MAINMENU MENU
 BEGIN
   POPUP "&File"
   BEGIN
@@ -42,7 +42,7 @@ BEGIN
       VALUE "FileDescription", "Win32 Test application"
       VALUE "FileVersion", "1.0.0.0"
       VALUE "InternalName", "Win32App"
-      VALUE "LegalCopyright", "©2013 Transmission Zero"
+      VALUE "LegalCopyright", "©2016 Transmission Zero"
       VALUE "OriginalFilename", "Win32App.exe"
       VALUE "ProductName", "Win32 Test application"
       VALUE "ProductVersion", "1.0.0.0"
@@ -62,12 +62,12 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
   ICON             IDI_APPICON,IDC_STATIC,7,7,20,20
   LTEXT            "Win32 Test application.",IDC_STATIC,34,7,86,8
-  LTEXT            "©2013 Transmission Zero",IDC_STATIC,34,17,86,8
+  LTEXT            "©2016 Transmission Zero",IDC_STATIC,34,17,86,8
   DEFPUSHBUTTON    "OK",IDOK,90,46,50,14,WS_GROUP
 END
 
 // Our accelerators.
-IDR_ACCELERATOR ACCELERATORS 
+IDR_ACCELERATOR ACCELERATORS
 BEGIN
   "A",             ID_HELP_ABOUT,      VIRTKEY, ALT, NOINVERT
 END

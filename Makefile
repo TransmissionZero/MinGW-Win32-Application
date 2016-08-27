@@ -12,9 +12,9 @@ RC = windres
 
 # Compile ANSI build only if CHARSET=ANSI
 ifeq (${CHARSET}, ANSI)
-  CFLAGS= -O3 -std=c99 -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
+  CFLAGS = -O3 -std=c99 -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
 else
-  CFLAGS= -O3 -std=c99 -D UNICODE -D _UNICODE -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
+  CFLAGS = -O3 -std=c99 -D UNICODE -D _UNICODE -D _WIN32_IE=0x0500 -D WINVER=0x500 ${WARNS}
 endif
 
 
@@ -26,7 +26,10 @@ Win32App.exe: ${OBJS}
 clean:
 	del obj\*.o "Win32App.exe"
 
-obj/%.o: src/%.c ${HEADERS}
+obj:
+	mkdir obj
+
+obj/%.o: src/%.c ${HEADERS} obj
 	${CC} ${CFLAGS} ${INCLUDE_DIRS} -c $< -o $@
 
 obj/resource.o: res/resource.rc res/Application.manifest res/Application.ico include/resource.h
