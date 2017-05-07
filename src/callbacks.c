@@ -7,7 +7,7 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
   static HINSTANCE hInstance;
 
   switch (msg)
-  {  
+  {
     case WM_COMMAND:
     {
       switch (LOWORD(wParam))
@@ -48,7 +48,7 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
       }
       break;
     }
-    
+
     case WM_CREATE:
     {
       hInstance = ((LPCREATESTRUCT) lParam)->hInstance;

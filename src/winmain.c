@@ -32,9 +32,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
   wc.hbrBackground = (HBRUSH) (COLOR_BTNFACE + 1);
   wc.lpszMenuName  = MAKEINTRESOURCE(IDR_MAINMENU);
   wc.lpszClassName = MainWndClass;
-  wc.hIconSm       = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON,
-                                       GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON),
-                                       LR_DEFAULTCOLOR | LR_SHARED);
+  wc.hIconSm       = (HICON) LoadImage(hInstance, MAKEINTRESOURCE(IDI_APPICON), IMAGE_ICON, 16, 16,
+                                       LR_DEFAULTCOLOR);
 
   // Register our window classes, or error.
   if (! RegisterClassEx(&wc))
@@ -42,7 +41,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     MessageBox(NULL, TEXT("Error registering window class."), TEXT("Error"), MB_ICONERROR | MB_OK);
     return 0;
   }
-  
+
   // Create instance of main window.
   hWnd = CreateWindowEx(0, MainWndClass, MainWndClass, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
                         320, 200, NULL, NULL, hInstance, NULL);
