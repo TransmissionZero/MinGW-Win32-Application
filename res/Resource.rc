@@ -1,10 +1,10 @@
 #include <windows.h>
-#include "resource.h"
+#include "Resource.h"
 
-// Win32 application icon.
+/* Win32 application icon */
 IDI_APPICON ICON                       "Application.ico"
 
-// Our main menu.
+/* Our main menu */
 IDR_MAINMENU MENU
 BEGIN
   POPUP "&File"
@@ -17,10 +17,10 @@ BEGIN
   END
 END
 
-// Application manifest.
+/* Application manifest */
 CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "Application.manifest"
 
-// Executable version information.
+/* Executable version information */
 VS_VERSION_INFO    VERSIONINFO
 FILEVERSION        1,0,0,0
 PRODUCTVERSION     1,0,0,0
@@ -39,12 +39,12 @@ BEGIN
     BLOCK "080904b0"
     BEGIN
       VALUE "CompanyName", "Transmission Zero"
-      VALUE "FileDescription", "Win32 Test application"
+      VALUE "FileDescription", "Win32 Example Application"
       VALUE "FileVersion", "1.0.0.0"
       VALUE "InternalName", "Win32App"
-      VALUE "LegalCopyright", "©2016 Transmission Zero"
+      VALUE "LegalCopyright", "©2017 Transmission Zero"
       VALUE "OriginalFilename", "Win32App.exe"
-      VALUE "ProductName", "Win32 Test application"
+      VALUE "ProductName", "Win32 Example Application"
       VALUE "ProductVersion", "1.0.0.0"
     END
   END
@@ -54,19 +54,19 @@ BEGIN
   END
 END
 
-// Our "about" dialog.
+/* Our "about" dialog */
 IDD_ABOUTDIALOG DIALOGEX 0, 0, 147, 67
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
   ICON             IDI_APPICON,IDC_STATIC,7,7,20,20
-  LTEXT            "Win32 Test application.",IDC_STATIC,34,7,86,8
-  LTEXT            "©2016 Transmission Zero",IDC_STATIC,34,17,86,8
+  LTEXT            "Win32 Example Application",IDC_STATIC,34,7,89,8
+  LTEXT            "©2017 Transmission Zero",IDC_STATIC,34,17,86,8
   DEFPUSHBUTTON    "OK",IDOK,90,46,50,14,WS_GROUP
 END
 
-// Our accelerators.
+/* Our accelerators */
 IDR_ACCELERATOR ACCELERATORS
 BEGIN
   "A",             ID_HELP_ABOUT,      VIRTKEY, ALT, NOINVERT
